@@ -1,0 +1,17 @@
+{
+  "name": "exp-mobile-boilerplate",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "browserify": "^9.0.7",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-replace": "^0.5.3",
+    "open": "0.0.4",
+    "ripple-emulator": "~0.9.19",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "~1.1.0",
+    "yargs": "^3.5.3"
+  }
+}

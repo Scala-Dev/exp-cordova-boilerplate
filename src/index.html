@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+        <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
+
+        <!-- TODO usemin -->
+        <link rel="stylesheet" type="text/css" href="app/main/main.css">
+        <link rel="stylesheet" type="text/css" href="common/directives/mainwrap/mainwrap.css">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+    </head>
+    <body>
+        <div class="app" ui-view layout="column"></div>
+
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.js"></script>
+        <script src="bower_components/lodash/lodash.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <!-- TODO usemin -->
+        <script type="text/javascript" src="app/app.js"></script>
+        <script type="text/javascript" src="common/directives/mainwrap/mainwrap.controller.js"></script>
+        <script type="text/javascript" src="common/directives/mainwrap/mainwrap.js"></script>
+        <script type="text/javascript" src="app/main/main.controller.js"></script>
+        <script type="text/javascript" src="app/main/main.js"></script>
+
+        <script type="text/javascript" src="js/mobile.js"></script>
+
+    </body>
+</html>

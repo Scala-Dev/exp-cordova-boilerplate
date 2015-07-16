@@ -1,0 +1,66 @@
+<md-toolbar class="main">
+  <div class="md-toolbar-tools">
+    <md-button
+      class="md-icon-button menu-left"
+      ng-click="mainwrapCtrl.toggleSidenav('left')"
+      aria-label="Show Menu">
+      <md-icon class="md-primary-icon" md-svg-icon="img/ic_menu_white_24px.svg" alt="Menu"></md-icon>
+    </md-button>
+
+    <h1>Scala EXP Boilerplate</h1>
+
+  </div>
+</md-toolbar>
+
+<md-sidenav
+  ng-class="{'menu-open':mainwrapCtrl.navIsOpen('left')}"
+  class="main-sidenav md-sidenav-left md-whiteframe-z2"
+  md-component-id="left" >
+  <md-toolbar md-theme="default">
+    <md-list class="button-list">
+      <md-item layout="row">
+        <div class="md-button no-link meta">
+          <md-icon class="md-primary-icon" md-svg-icon="img/ic_account_circle_white_24px.svg" size="lg" alt="Welcome"></md-icon>&nbsp;Welcome
+        </div>
+      </md-item>
+    </md-list>
+    <md-divider></md-divider>
+  </md-toolbar>
+  <md-content>
+    <md-list class="button-list">
+
+      <md-item layout="row">
+        <md-button >
+          <span><md-icon size="lg" md-svg-icon="img/ic_bluetooth_searching_black_24px.svg" alt="Menu Item 1"></md-icon>&nbsp;Menu Item 1</span>
+        </md-button>
+      </md-item>
+
+      <md-item layout="row">
+        <md-button >
+          <span><md-icon size="lg" md-svg-icon="img/ic_devices_black_24px.svg" alt="Menu Item 2"></md-icon>&nbsp;Menu Item 2</span>
+        </md-button>
+      </md-item>
+
+      <md-item layout="row">
+        <md-button >
+          <span><md-icon size="lg" md-svg-icon="img/ic_gps_fixed_black_24px.svg" alt="Menu Item 4"></md-icon>&nbsp;Menu Item 3</span>
+        </md-button>
+      </md-item>
+
+    </md-list>
+  </md-content>
+</md-sidenav>
+
+<md-content layout="row" flex>
+  <!-- transcluded content goes here -->
+  <div ng-transclude layout="row" flex layout-fill></div>
+</md-content>
+
+<md-sidenav
+  ng-class="{'menu-open':mainwrapCtrl.navIsOpen('right')}"
+  class="main-sidenav md-sidenav-right md-whiteframe-z2"
+  md-component-id="right">
+
+</md-sidenav>
+
+

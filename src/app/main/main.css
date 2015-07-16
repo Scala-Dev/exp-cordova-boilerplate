@@ -1,0 +1,24 @@
+.main md-grid-list {
+  margin: 8px; }
+.main .gray {
+  background: #f5f5f5; }
+.main .green {
+  background: #b9f6ca; }
+.main .yellow {
+  background: #ffff8d; }
+.main .blue {
+  background: #84ffff; }
+.main .purple {
+  background: #b388ff; }
+.main .red {
+  background: #ff8a80; }
+.main .darkBlue {
+  background: #80d8ff; }
+.main .deepBlue {
+  background: #448aff; }
+.main .lightPurple {
+  background: #8c9eff; }
+.main .pink {
+  background: #ff80ab; }
+/*.main md-grid-tile {
+  transition: all 400ms ease-out 50ms; }*/
