@@ -52,9 +52,13 @@ var init = function(scala) {
     .then(function() {
       console.log('all geofences successfully removed');
 
-      var config = scala.tempSync.get();
-
-      scala.api.get('/api/zones?subtype=scala:zone:geofence&experienceUuid=' + config.experience.uuid)
+      scala.interface.request({
+        name: 'getExperience',
+        target: 'system'
+      })
+      .then(function(experience) {
+        return scala.api.get('/api/zones?subtype=scala:zone:geofence&experienceUuid=' + experience.uuid);
+      })
       .then(function(resp) {
         console.log(JSON.stringify(resp));
 
@@ -111,7 +115,8 @@ var init = function(scala) {
 
   // register experience config change event
   //scala.experience.events.on('change', setupRegions);
-  scala.tempSync.events.on('change', setupRegions);
+  //scala.tempSync.events.on('change', setupRegions);
+  scala.connection.events.on('online', setupRegions);
 
 };
 

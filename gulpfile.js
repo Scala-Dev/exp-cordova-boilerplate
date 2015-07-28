@@ -6,6 +6,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var o = require('open');
 var ripple = require('ripple-emulator');
+var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('mobile-static', function() {
   gulp.src('src/index.html')
@@ -24,11 +25,13 @@ gulp.task('mobile-static', function() {
 gulp.task('mobile-javascript', function() {
   return browserify('./main.js', {
     basedir: './src/js',
-    paths: ['./', '../../../exp-sdk/src']
+    paths: ['./']
   }).bundle()
     .pipe(source('mobile.js'))
     .pipe(buffer())
     .pipe(replace('http://localhost:9000', argv.baseUrl || 'http://localhost:9000'))
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('www/js'));
 });
 

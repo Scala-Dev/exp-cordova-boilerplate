@@ -1,10 +1,7 @@
 {
   "name": "exp-mobile-boilerplate",
   "version": "0.0.0",
-  "homepage": "https://github.com/ScalaInc/exp-player-core",
-  "authors": [
-    "Adam Galloway <adam.galloway@scala.com>"
-  ],
+  "homepage": "https://github.com/ScalaInc/exp-mobile-boilerplate",
   "main": "index.html",
   "license": "none",
   "private": true,

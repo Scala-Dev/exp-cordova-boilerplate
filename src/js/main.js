@@ -4,14 +4,6 @@
 /*global require, module*/
 
 document.addEventListener('deviceready', function () {
-  require('EventNode');
-  require('jwt');
-  require('Logger');
-  require('SDK');
-  require('experience');
-  require('connection');
-  require('interface');
-  require('device');
 
   var scala = require('./lib/scala');
 

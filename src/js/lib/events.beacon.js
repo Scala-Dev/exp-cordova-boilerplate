@@ -65,9 +65,13 @@ var init = function(scala) {
     // clear regions
     regions = [];
 
-    var config = scala.tempSync.get();
-
-    scala.api.get('/api/zones?subtype=scala:zone:thing&experienceUuid=' + config.experience.uuid)
+    scala.interface.request({
+      name: 'getExperience',
+      target: 'system'
+    })
+    .then(function(experience) {
+      return scala.api.get('/api/zones?subtype=scala:zone:thing&experienceUuid=' + experience.uuid);
+    })
     .then(function(resp) {
       console.log(JSON.stringify(resp));
 
@@ -103,7 +107,7 @@ var init = function(scala) {
 
   // register experience config change event
   //scala.experience.events.on('change', setupRegions);
-  scala.tempSync.events.on('change', setupRegions);
+  scala.connection.events.on('online', setupRegions);
 
 };
 

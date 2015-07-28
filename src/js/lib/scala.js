@@ -1,34 +1,27 @@
 'use strict';
 
-var tempSync = require('temp-sync');
-var experience = require('experience');
-var connection = require('connection');
-var credentials = require('credentials');
-var jwt = require('jwt');
-
 var nfc = require('./events.nfc');
 var beacon = require('./events.beacon');
 var geofence = require('./events.geofence');
 
-var EventNode = require('EventNode');
-var SDK = require('SDK');
-
-var scala = new SDK();
-
-scala.tempSync = tempSync;
-
-scala.experience = experience;
+var scala = require('exp-js-sdk');
 
 scala.authenticate = function(auth) {
-  credentials.set(auth);
-
-  var token = jwt.signToken(auth);
-  connection.connect(token);
+  return scala.credentials.set(auth.uuid, auth.secret)
+    .then(function() {
+      scala.credentials.getToken()
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+    .then(function(token) {
+      scala.connection.connect({ token: token, host: 'http://localhost:9000' });
+    });
 };
 
-scala.thing = new EventNode();
+scala.thing = new scala.utilities.EventNode();
 
-scala.location = new EventNode();
+scala.location = new scala.utilities.EventNode();
 scala.location.current = {};
 
 nfc.init(scala);
