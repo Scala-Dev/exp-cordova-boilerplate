@@ -35,7 +35,7 @@ angular.module('mobile-boilerplate', [
 
   // login
   scala.authenticate({
-    'uuid': '1f6060b0-4330-407e-b4b1-cd8b0d3efbf6',
+    'uuid': 'd877ae12-3f11-4899-b2c6-fdc17c8ebdd6',
     'secret': 'DEVICE-SECRET'
   });
 

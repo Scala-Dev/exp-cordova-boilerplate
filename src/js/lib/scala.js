@@ -3,6 +3,7 @@
 var nfc = require('./events.nfc');
 var beacon = require('./events.beacon');
 var geofence = require('./events.geofence');
+var orientation = require('./events.orientation');
 
 var scala = require('exp-js-sdk');
 
@@ -27,5 +28,6 @@ scala.location.current = {};
 nfc.init(scala);
 beacon.init(scala);
 geofence.init(scala);
+orientation.init(scala);
 
 module.exports = scala;

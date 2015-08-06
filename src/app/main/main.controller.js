@@ -2,6 +2,10 @@
 
 angular.module('mobile-boilerplate')
 .controller('MainCtrl', ['$scope', 'scala', function ($scope, scala) {
+//TODO remove me
+  this.fireIt = function() {
+    scala.interface.broadcast({ name: 'control', payload: { type: 'button' }});
+  };
 
   var self = this;
   self.colors = ['red', 'green', 'blue', 'yellow', 'pink', 'purple', 'deepBlue', 'lightPurple'];
