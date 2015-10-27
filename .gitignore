@@ -1,0 +1,8 @@
+www
+build
+node_modules
+bower_components
+*.sublime-workspace
+.DS_Store
+platforms
+plugins

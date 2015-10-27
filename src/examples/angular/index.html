@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+
+    <!-- begin angular dependencies -->
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="app/content/content.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!-- end angular dependencies -->
+
+    <!-- initialize the EXP SDK -->
+    <script type="text/javascript">
+      var app = {
+        bootstrap: function(exp) {
+          // login
+          exp.runtime.start({
+            host: 'https://api-develop.exp.scala.com',
+            uuid: '9771eb9c-c30d-43d9-8f95-3389ea9aeb5d', // Device uuid.
+            secret: 'cfe42af9027394dfc02cdc2bd64000411d59209bb52f74eae7abd3881c662ba0d6f793de583ae4647a968293a2549203' // Device secret
+          })
+          .then(function() {
+            console.log('connected to exp');
+          })
+          .catch(function(err) {
+            console.log('not connected to exp');
+            console.error(err);
+          })
+          .then(function() {
+            // setup and start angular
+            angular.module('cordova-boilerplate').value('exp', exp);
+            angular.bootstrap(document, ['cordova-boilerplate']);
+          });
+
+        }
+      };
+    </script>
+
+  </head>
+  <body layout="row" ng-controller="MainCtrl">
+
+    <!-- left side nav -->
+    <md-sidenav layout="column" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-toolbar class="md-tall md-accent">
+        <span flex></span>
+        <div layout="column" class="md-toolbar-tools-bottom inset">
+          <md-icon class="md-primary-icon" md-svg-icon="account" size="lg" alt="Welcome"></md-icon>
+          <span>Welcome</span>
+        </div>
+      </md-toolbar>
+      <md-list>
+
+        <md-item layout="row">
+          <md-button layout-fill layout-align="start center" style="text-align:left">
+            <md-icon size="lg" md-svg-icon="bluetooth" alt="Menu Item 1"></md-icon>
+            &nbsp;Menu Item 1
+          </md-button>
+        </md-item>
+        <md-item layout="row">
+          <md-button layout-fill layout-align="start center" style="text-align:left">
+            <md-icon size="lg" md-svg-icon="devices" alt="Menu Item 2"></md-icon>
+            &nbsp;Menu Item 2
+          </md-button>
+        </md-item>
+        <md-item layout="row">
+          <md-button layout-fill layout-align="start center" style="text-align:left">
+            <md-icon size="lg" md-svg-icon="gps" alt="Menu Item 3"></md-icon>
+            &nbsp;Menu Item 3
+          </md-button>
+        </md-item>
+
+      </md-list>
+    </md-sidenav>
+
+
+    <!-- main content -->
+    <div layout="column" class="relative" layout-fill role="main">
+
+      <!-- top toolbar -->
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <md-button
+            class="md-icon-button menu-left"
+            ng-click="toggleSidenav('left')"
+            hide-gt-md
+            aria-label="Show Menu">
+            <md-icon class="md-primary-icon" md-svg-icon="menu" alt="Menu"></md-icon>
+          </md-button>
+          <h1>Scala EXP</h1>
+        </div>
+      </md-toolbar>
+
+      <!-- load indicator -->
+      <div
+        layout="column"
+        layout-fill
+        layout-padding
+        layout-align="center center"
+        ng-show="loading">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+
+      <!-- route view -->
+      <div
+        layout="column"
+        layout-fill
+        ui-view
+        ng-hide="loading">
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <!-- begin angular dependencies -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="common/directives/thumbnail/thumbnail.js"></script>
+    <script type="text/javascript" src="common/filters/titlecase/titlecase.js"></script>
+    <script type="text/javascript" src="common/services/content/content.js"></script>
+    <script type="text/javascript" src="app/main/main.controller.js"></script>
+    <script type="text/javascript" src="app/content/content.controller.js"></script>
+    <script type="text/javascript" src="app/content/content.js"></script>
+    <!-- end angular dependencies -->
+
+    <script type="text/javascript" src="js/mobile.js"></script>
+
+  </body>
+</html>

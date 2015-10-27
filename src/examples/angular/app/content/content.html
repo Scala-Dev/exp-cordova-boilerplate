@@ -1,0 +1,69 @@
+<md-content flex md-scroll-y>
+  <div layout="column" layout-fill layout-padding>
+
+      <h3>{{ currentFolder.document.path }}</h3>
+      <section>
+        <h4>Folders</h4>
+        <md-grid-list
+          md-cols-sm="2"
+          md-cols-md="2"
+          md-cols-gt-md="4"
+          md-row-height="3:1"
+          md-gutter="8px"
+          md-gutter-gt-sm="4px">
+
+          <md-grid-tile
+            ng-repeat="folder in folders"
+            md-rowspan="1"
+            md-colspan="1"
+            md-colspan-sm="1"
+            class="gray"
+            ui-sref="content({ folder: folder.uuid })">
+
+            <div class="folder truncate" layout-padding>
+              <md-icon class="thumb-icon" md-svg-icon="folder"></md-icon>
+              &nbsp;{{ folder.document.name }}
+            </div>
+
+          </md-grid-tile>
+
+        </md-grid-list>
+      </section>
+
+      <section>
+        <h4>Files</h4>
+        <md-grid-list
+          md-cols-sm="2"
+          md-cols-md="2"
+          md-cols-gt-md="4"
+          md-row-height="4:5"
+          md-gutter="8px"
+          md-gutter-gt-sm="4px">
+
+          <md-grid-tile
+            ng-repeat="file in files"
+            md-rowspan="1"
+            md-colspan="1"
+            md-colspan-sm="1"
+            class="gray thumb"
+            ng-click="showDialog($event, file)"
+            thumbnail="{{ file.getVariantUrl('320.png') }}">
+
+            <md-icon
+              md-svg-icon="{{ file.contentType }}"
+              ng-hide="file.hasVariant('320.png')"
+              class="large-icon">
+            </md-icon>
+
+            <md-grid-tile-footer class="darkGray" layout-padding>
+              {{ file.document.name }}
+            </md-grid-tile-footer>
+
+          </md-grid-tile>
+
+        </md-grid-list>
+      </section>
+
+  </div>
+</md-content>
+

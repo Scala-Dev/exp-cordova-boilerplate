@@ -1,0 +1,12 @@
+<md-dialog>
+  <md-content layout-padding>
+    <div>
+      <h2>{{ item.document.name }}</h2>
+      <h4>Type: {{ item.contentType | titlecase }}</h4>
+    </div>
+  </md-content>
+  <div class="md-actions">
+    <md-button ng-click="close()">Cancel</md-button>
+    <md-button ng-click="open()" ng-show="showOpenButton">Open</md-button>
+  </div>
+</md-dialog>
