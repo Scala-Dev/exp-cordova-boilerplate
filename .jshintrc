@@ -72,7 +72,8 @@
       "SVGInjector": true,
       "before": true,
       "require": true,
-      "expect": true
+      "expect": true,
+      "cordova": true
     },
     "predef"        : [
       "__dirname",

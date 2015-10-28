@@ -39,7 +39,7 @@ angular.module('cordova-boilerplate')
         function(fileEntry) {
           resolve(fileEntry);
         }, function(err) {
-          console.log("FileSystem Error");
+          console.log('FileSystem Error');
           console.error(err);
           reject(err);
         });
@@ -49,6 +49,7 @@ angular.module('cordova-boilerplate')
   var openFileEntry = function(entry, mimeType) {
     cordova.plugins.fileOpener2.open(
       entry.toURL(),
+      mimeType,
       {
         success: function () {
           $rootScope.loading = false;
@@ -78,7 +79,7 @@ angular.module('cordova-boilerplate')
       console.log('file exists, opening: ' + entry.toURL());
       openFileEntry(entry, info.mimeType);
     })
-    .catch(function(err) {
+    .catch(function() {
       // download file
       var targetDirectory = cordova.file.externalApplicationStorageDirectory || cordova.file.documentsDirectory + 'scala/';
       var target = targetDirectory + content.uuid;

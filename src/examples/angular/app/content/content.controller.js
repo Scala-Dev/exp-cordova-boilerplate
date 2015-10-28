@@ -32,9 +32,16 @@ angular.module('cordova-boilerplate')
       locals: {
         item: content
       },
-      controller: function($scope, contentService, item) {
+      controller: function($scope, exp, contentService, item) {
         $scope.item = item;
         $scope.showOpenButton = contentService.canOpen(item);
+        $scope.showFlingButton = item.document.mimeType && (item.document.mimeType.indexOf('image') === 0 || item.document.mimeType.indexOf('video') === 0);
+
+        $scope.fling = function() {
+          // fling content to organization channel
+          exp.channels.organization.fling($scope.item.uuid);
+          $mdDialog.hide();
+        };
 
         $scope.open = function() {
           // open file in external app
