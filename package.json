@@ -17,7 +17,6 @@
     "yargs": "^3.5.3"
   },
   "dependencies": {
-    "exp-js-sdk": "git+https://github.com/scalainc/exp-js-sdk.git#develop",
     "lodash": "^3.9.3"
   }
 }
