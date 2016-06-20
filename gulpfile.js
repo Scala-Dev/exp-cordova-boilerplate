@@ -24,42 +24,41 @@ gulp.task('mobile-javascript', function() {
 });
 
 
-/* angular tasks */
-gulp.task('angular-static', function() {
-  gulp.src('./src/examples/angular/index.html')
+gulp.task('static', function() {
+  gulp.src('./src/index.html')
     .pipe(gulp.dest('www'));
 
-  gulp.src('./src/examples/angular/img/**/*')
+  gulp.src('./src/img/**/*')
     .pipe(gulp.dest('www/img'));
 
-  gulp.src('./src/examples/angular/app/**/*')
+  gulp.src('./src/app/**/*')
     .pipe(gulp.dest('www/app'));
 
-  gulp.src('./src/examples/angular/common/**/*')
+  gulp.src('./src/common/**/*')
     .pipe(gulp.dest('www/common'));
 });
 
 
-gulp.task('angular-stylesheets', function() {
-  return gulp.src('./src/examples/angular/css/**/*.css')
+gulp.task('stylesheets', function() {
+  return gulp.src('./src/css/**/*.css')
     .pipe(gulp.dest('www/css'));
 });
 
-gulp.task('build-angular', ['angular-static', 'angular-stylesheets', 'mobile-javascript']);
+gulp.task('build', ['static', 'stylesheets', 'mobile-javascript']);
 
-gulp.task('watch-angular', ['build-angular'], function() {
+gulp.task('watch', ['build'], function() {
 
   gulp.watch([
-    './src/examples/angular/app/**/*',
-    './src/examples/angular/common/**/*',
-    './srcexamples/angular/index.html',
-    './srcexamples/angular/img/**/*'],
+    './src/app/**/*',
+    './src/common/**/*',
+    './srcindex.html',
+    './srcimg/**/*'],
     function() {
-      gulp.run('angular-static');
+      gulp.run('static');
     });
 
-  gulp.watch('./src/examples/angular/css/**', function() {
-    gulp.run('angular-stylesheets');
+  gulp.watch('./src/css/**', function() {
+    gulp.run('stylesheets');
   });
 
   gulp.watch('./src/js/**', function() {
@@ -68,17 +67,7 @@ gulp.task('watch-angular', ['build-angular'], function() {
 });
 
 
-/* basic tasks */
-gulp.task('build-basic', ['mobile-javascript'], function() {
-  gulp.src('./src/examples/basic/index.html')
-    .pipe(gulp.dest('www'));
-});
-
-
-/* default tasks */
-gulp.task('build', ['build-angular']);
-
-gulp.task('default', ['watch-angular'], function() {
+gulp.task('default', ['watch'], function() {
 
   var options = {
     keepAlive: false,
