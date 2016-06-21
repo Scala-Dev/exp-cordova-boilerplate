@@ -1,13 +1,24 @@
-<md-dialog>
-  <md-content layout-padding>
-    <div>
+<md-dialog md-theme="default">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
       <h2>{{:: item.document.name }}</h2>
-      <h4>Type: {{:: item.contentType | titlecase }}</h4>
+      <!--<span flex></span>-->
+      <!--<md-button class="md-icon-button" ng-click="close()">-->
+        <!--<md-icon md-svg-src="close" aria-label="Close modal"></md-icon>-->
+      <!--</md-button>-->
     </div>
-  </md-content>
-  <div class="md-actions">
-    <md-button ng-click="close()">Cancel</md-button>
-    <md-button ng-click="fling()" ng-show="showFlingButton">Fling</md-button>
-    <md-button ng-click="open()" ng-show="showOpenButton">Open</md-button>
-  </div>
+  </md-toolbar>
+
+  <md-dialog-content class="md-default-theme" layout-padding="lg">
+    <h2>{{:: item.document.name }}</h2>
+    <h4>Type: {{:: item.contentType | titlecase }}</h4>
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <md-button class="md-primary" ng-click="fling()">Fling</md-button>
+    <md-button class="md-primary" ng-click="open()">Open</md-button>
+    <div flex></div>
+    <md-button ng-click="close()">Close</md-button>
+  </md-dialog-actions>
+
 </md-dialog>

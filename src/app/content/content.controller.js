@@ -25,31 +25,32 @@ angular.module('cordova-boilerplate')
   };
 
 
-  $scope.showDialog = function($event, content) {
+  $scope.showDialog = function(event, content) {
     $mdDialog.show({
       templateUrl: 'app/content/dialog.html',
-      targetEvent: $event,
+      fullscreen: true,
+      targetEvent: event,
       locals: {
         item: content
       },
-      controller: function($scope, exp, contentService, item) {
-        $scope.item = item;
-        $scope.showOpenButton = contentService.canOpen(item);
-        $scope.showFlingButton = item.document.mimeType && (item.document.mimeType.indexOf('image') === 0 || item.document.mimeType.indexOf('video') === 0);
+      controller: function(scope, contentService, item) {
+        scope.item = item;
+        scope.showOpenButton = contentService.canOpen(item);
+        scope.showFlingButton = item.document.mimeType && (item.document.mimeType.indexOf('image') === 0 || item.document.mimeType.indexOf('video') === 0);
 
-        $scope.fling = function() {
+        scope.fling = function() {
           // fling content to organization channel
-          exp.channels.organization.fling($scope.item.uuid);
+          exp.channels.organization.fling(scope.item.uuid);
           $mdDialog.hide();
         };
 
-        $scope.open = function() {
+        scope.open = function() {
           // open file in external app
-          contentService.open($scope.item);
+          contentService.open(scope.item);
           $mdDialog.hide();
         };
 
-        $scope.close = function() {
+        scope.close = function() {
           $mdDialog.hide();
         };
       }
