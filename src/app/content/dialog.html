@@ -12,6 +12,7 @@
   <md-dialog-content class="md-default-theme" layout-padding="lg">
     <h2>{{:: item.document.name }}</h2>
     <h4>Type: {{:: item.contentType | titlecase }}</h4>
+    <img class="content-thumbnail" ng-src="{{ item.getVariantUrl('320.png') }}"></img>
   </md-dialog-content>
 
   <md-dialog-actions>
