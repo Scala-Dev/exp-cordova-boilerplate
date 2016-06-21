@@ -10,19 +10,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var del = require('del');
 
 
-gulp.task('mobile-javascript', function() {
-  return browserify('./main.js', {
-    basedir: './src/js',
-    paths: ['./']
-  }).bundle()
-    .pipe(source('mobile.js'))
-    .pipe(buffer())
-    .pipe(replace('http://localhost:9000', argv.baseUrl || 'http://localhost:9000'))
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('www/js'));
-});
-
 
 gulp.task('static', function() {
   gulp.src('./src/index.html')
@@ -44,7 +31,7 @@ gulp.task('stylesheets', function() {
     .pipe(gulp.dest('www/css'));
 });
 
-gulp.task('build', ['static', 'stylesheets', 'mobile-javascript']);
+gulp.task('build', ['static', 'stylesheets']);
 
 gulp.task('watch', ['build'], function() {
 
@@ -61,9 +48,6 @@ gulp.task('watch', ['build'], function() {
     gulp.run('stylesheets');
   });
 
-  gulp.watch('./src/js/**', function() {
-    gulp.run('mobile-javascript');
-  });
 });
 
 
