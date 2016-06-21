@@ -1,0 +1,4 @@
+EXP_CREDENTIALS = {
+  uuid: '1359d0cd-1caa-4e36-bddd-a1e448d6b633',
+  apiKey: 'ace0aa87f5ee078c8e49948616137205925e2b96cd918c05b548829af6185630ca569ac2d83a315d21899063eacd2beb'
+};

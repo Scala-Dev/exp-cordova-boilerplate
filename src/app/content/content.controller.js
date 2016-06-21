@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cordova-boilerplate')
-.controller('ContentCtrl', function ($scope, $state, $mdDialog, exp, currentFolder) {
+.controller('ContentCtrl', function ($scope, $state, $mdDialog, currentFolder) {
   navigator.splashscreen.hide();
 
   $scope.folders = [];

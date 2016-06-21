@@ -22,31 +22,23 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- end angular dependencies -->
 
+    <script src="bower_components/exp-sdk/exp-sdk.min.js"></script>
+    <script src="app/exp-credentials.js"></script>
+
     <!-- initialize the EXP SDK -->
     <script type="text/javascript">
-      var app = {
-        bootstrap: function(exp) {
-          // login
-          exp.runtime.start({
-            host: 'https://api-develop.exp.scala.com',
-            uuid: '9771eb9c-c30d-43d9-8f95-3389ea9aeb5d', // Device uuid.
-            secret: 'cfe42af9027394dfc02cdc2bd64000411d59209bb52f74eae7abd3881c662ba0d6f793de583ae4647a968293a2549203' // Device secret
-          })
-          .then(function() {
-            console.log('connected to exp');
-          })
-          .catch(function(err) {
-            console.log('not connected to exp');
-            console.error(err);
-          })
-          .then(function() {
-            // setup and start angular
-            angular.module('cordova-boilerplate').value('exp', exp);
-            angular.bootstrap(document, ['cordova-boilerplate']);
-          });
+      document.addEventListener('deviceready', function() {
+        exp = EXP.start(EXP_CREDENTIALS);
 
-        }
-      };
+        exp.on('offline', function() {
+          console.log('connection to exp lost');
+        });
+
+        exp.on('online', function() {
+          console.log('connected to exp');
+          angular.bootstrap(document, ['cordova-boilerplate']);
+        });
+      }, false);
     </script>
 
   </head>
