@@ -5,7 +5,6 @@ angular.module('cordova-boilerplate', [
   'ui.router',
   'ngAria',
   'ngMaterial',
-  'ngTouch',
   'ngResource',
   'ngMessages'
 ])

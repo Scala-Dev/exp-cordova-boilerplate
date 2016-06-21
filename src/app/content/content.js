@@ -12,8 +12,7 @@ angular.module('cordova-boilerplate')
           // default to 'root' folder if no uuid provided
           var folderUuid = $stateParams.folder || 'root';
 
-          // fetch the folder before loading the controller
-          return exp.api.getContentNode(folderUuid);
+          return exp.getContent(folderUuid);
         }
       }
     });

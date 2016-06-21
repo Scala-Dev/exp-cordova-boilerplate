@@ -2,7 +2,7 @@
 
 angular.module('cordova-boilerplate')
 .controller('ContentCtrl', function ($scope, $state, $mdDialog, currentFolder) {
-  navigator.splashscreen.hide();
+  console.log('currentFolder is', currentFolder);
 
   $scope.folders = [];
   $scope.files = [];
