@@ -1,7 +1,13 @@
 <md-content flex md-scroll-y>
   <div layout="column" layout-fill layout-padding>
 
-      <h3>{{ currentFolder.document.path }}</h3>
+      <h3 ng-if="currentFolder.uuid === 'root'">{{ currentFolder.document.path }}</h3>
+      <h3 ng-if="currentFolder.uuid !== 'root'" layout="row" layout-align="start center">
+        <md-button ui-sref="content({ folder: currentFolder.document.parent })" class="md-icon-button">
+          <md-icon md-svg-icon="back"></md-icon>
+        </md-button>
+        <span>{{ currentFolder.document.path }}</span>
+      </h3>
       <section>
         <h4>Folders</h4>
         <md-grid-list
