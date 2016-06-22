@@ -40,7 +40,12 @@ angular.module('cordova-boilerplate')
 
         scope.fling = function() {
           // fling content to organization channel
-          exp.channels.organization.fling(scope.item.uuid);
+          exp
+            .getChannel('fling-demo', { consumer: true })
+            .fling({
+              content: scope.item.uuid
+            });
+
           $mdDialog.hide();
         };
 
