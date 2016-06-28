@@ -36,6 +36,9 @@
 
         exp.on('online', function() {
           console.log('connected to exp');
+        });
+
+        exp.getAuth().then(function() {
           angular.bootstrap(document, ['cordova-boilerplate']);
         });
       }, false);
