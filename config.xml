@@ -71,4 +71,5 @@
     <plugin name="io.github.pwlin.cordova.plugins.fileopener2" spec="https://github.com/pwlin/cordova-plugin-file-opener2" />
     <plugin name="cordova-plugin-file-transfer" spec="~1.3.0" />
     <engine name="ios" spec="~4.1.1" />
+    <plugin name="cordova-plugin-splashscreen" spec="~3.2.2" />
 </widget>
