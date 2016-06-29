@@ -22,9 +22,9 @@ cordova plugins restore
 ```
 
 #Get Started
-Dig in and modify the files under src/examples/angular
+Dig in and modify the files under `/src/`
 
-Be sure to set your device UUID and secret in src/examples/angular/index.html
+This is a consumer app-- you must create a consumer app under the Consumer Apps tab of your organization and download the credentials and place the `consumerApp-credentials.json` file at `src/app/consumerApp-credentials.json`. This allows the app to connect to have permission to read data from your organization.
 
 When you are ready to run the app, change directory into the project directory
 ```
