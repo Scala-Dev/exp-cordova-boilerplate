@@ -6,4 +6,4 @@ bower_components
 .DS_Store
 platforms
 plugins
-src/config/exp-credentials.js
+src/app/consumerApp-credentials.json
