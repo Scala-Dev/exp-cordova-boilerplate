@@ -22,24 +22,26 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- end angular dependencies -->
 
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/exp-sdk/exp-sdk.min.js"></script>
-    <script src="app/exp-credentials.js"></script>
 
     <!-- initialize the EXP SDK -->
     <script type="text/javascript">
       document.addEventListener('deviceready', function() {
-        exp = EXP.start(EXP_CREDENTIALS);
+        $.get('app/consumerApp-credentials.json', function(credentials) {
+          exp = EXP.start(credentials);
 
-        exp.on('offline', function() {
-          console.log('connection to exp lost');
-        });
+          exp.on('offline', function() {
+            console.log('connection to exp lost');
+          });
 
-        exp.on('online', function() {
-          console.log('connected to exp');
-        });
+          exp.on('online', function() {
+            console.log('connected to exp');
+          });
 
-        exp.getAuth().then(function() {
-          angular.bootstrap(document, ['cordova-boilerplate']);
+          exp.getAuth().then(function() {
+            angular.bootstrap(document, ['cordova-boilerplate']);
+          });
         });
       }, false);
     </script>
@@ -123,7 +125,6 @@
     <!-- begin angular dependencies -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
