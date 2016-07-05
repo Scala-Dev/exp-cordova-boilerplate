@@ -20,8 +20,6 @@ angular.module('cordova-boilerplate', [
     $rootScope.loading = false;
   });
 
-  navigator.splashscreen.hide();
-
 })
 .config(function($mdThemingProvider, $mdIconProvider, $animateProvider, $httpProvider, $urlRouterProvider) {
   // setup theme colors

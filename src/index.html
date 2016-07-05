@@ -28,7 +28,7 @@
     <!-- initialize the EXP SDK -->
     <script type="text/javascript">
       document.addEventListener('deviceready', function() {
-        $.get('app/consumerApp-credentials.json', function(credentials) {
+        $.getJSON('app/consumerApp-credentials.json', function(credentials) {
           exp = EXP.start(credentials);
 
           exp.on('offline', function() {

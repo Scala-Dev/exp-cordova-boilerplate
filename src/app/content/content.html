@@ -20,7 +20,7 @@
           md-gutter-gt-sm="4px">
 
           <md-grid-tile
-            ng-repeat="folder in folders"
+            ng-repeat="folder in folders track by $index"
             md-rowspan="1"
             md-colspan="1"
             md-colspan-sm="1"
@@ -48,7 +48,7 @@
           md-gutter-gt-sm="4px">
 
           <md-grid-tile
-            ng-repeat="file in files"
+            ng-repeat="file in files track by $index"
             md-rowspan="1"
             md-colspan="1"
             md-colspan-sm="1"
