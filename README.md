@@ -42,18 +42,16 @@ gulp build-plain && cordova run android
 #Change icons and splash
 Changing the mobile icons and splash screen is not as straightforward as replacing the `icon.png` and `splash.png` in the root directory. We need a lot of variants to be generated, and we do so with some libraries:
 
-1. Install two utilities using npm:
+1. Install utilities using npm:
 ```
-npm install -g cordova-icon
-npm install -g cordova-splash
+npm install splashicon-generator -g
 ```
 
-2. Set the desired `icon.png` and `splash.png` assets into the root directory. Note that the splash image should be of size 2208 x 2208.
+2. Set the desired `icon.png` and `splash.png` assets into the root directory. Note that the splash image should be of size 2732 x 2732px.
 
 3. Run the utilities, this will generate all the required variants, but they won't yet be in the right location in the file system.
 ```
-cordova-icon
-cordova-splash
+splashicon-generator --imagespath="src/assets"
 ```
 
 4. Remove the old assets, if they're present.
