@@ -22,7 +22,7 @@
     "angular-resource": "~1.5.7",
     "angular-messages": "~1.5.7",
     "lodash": "^3.0.0",
-    "exp-sdk": "^1.0.1",
+    "exp-sdk": "1.0.5",
     "angular-material": "^1.0.9"
   },
   "resolutions": {
